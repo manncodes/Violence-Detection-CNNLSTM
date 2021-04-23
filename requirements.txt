@@ -1,0 +1,4 @@
+opencv_python==4.4.0.44
+termcolor==1.1.0
+numpy==1.19.2
+Keras==2.4.3

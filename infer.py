@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 model = keras.models.load_model('model/vlstm_92.h5')
 image_model = VGG16(include_top=True, weights='imagenet')  
 model.summary()  
-plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
+# plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
 #We will use the output of the layer prior to the final
 # classification-layer which is named fc2. This is a fully-connected (or dense) layer.
 transfer_layer = image_model.get_layer('fc2')
@@ -102,11 +102,7 @@ def infer(curr_dir,file_name):
 
 if __name__ == "__main__":
     arg = sys.argv
-    video_name = ""
-    if len(arg) < 1:
-        video_name = "fi3_xvid.avi"
-    else:
-        video_name = arg[1]
+    video_name = arg[1]
     start_time = time.time()
     result,confidence =infer(in_dir,video_name)
     if result=='Violent':
